@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>找找看遊戲</title>
+  <title>問答遊戲</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,36 +13,48 @@
     h1 {
       color: #333;
     }
-    .game-object {
-      width: 100px;
-      height: 100px;
+    .options {
+      margin-top: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
       cursor: pointer;
-      border: 2px solid #000;
-      margin: 10px;
+    }
+    #result {
+      font-size: 1.5rem;
+      color: green;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <h1>找找看遊戲</h1>
-  <p>點擊下面的物件！</p>
+  <h1>問答遊戲</h1>
+  <p>1 + 1 = ?</p>
 
-  <img src="https://via.placeholder.com/100" alt="Object 1" class="game-object" id="target" onclick="checkWin(this)">
-  <img src="https://via.placeholder.com/100" alt="Object 2" class="game-object" onclick="checkWin(this)">
-  <img src="https://via.placeholder.com/100" alt="Object 3" class="game-object" onclick="checkWin(this)">
+  <div class="options">
+    <button onclick="checkAnswer('A')">A. 1</button>
+    <button onclick="checkAnswer('B')">B. 2</button>
+    <button onclick="checkAnswer('C')">C. 3</button>
+    <button onclick="checkAnswer('D')">D. 4</button>
+  </div>
 
   <p id="result"></p>
 
   <script>
-    function checkWin(clickedObject) {
-      if (clickedObject.id === "target") {
-        document.getElementById("result").textContent = "恭喜！你找到了！";
+    function checkAnswer(selectedOption) {
+      const correctAnswer = 'B';
+      if (selectedOption === correctAnswer) {
+        document.getElementById("result").textContent = "恭喜！你答對了！";
       } else {
-        document.getElementById("result").textContent = "再試一次！";
+        document.getElementById("result").textContent = "很遺憾，答案不正確！";
       }
     }
   </script>
 
 </body>
 </html>
+
 
